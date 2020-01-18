@@ -1,4 +1,5 @@
 /**
+
 -----Sample I/O-----
 Enter Plaintext: The quick brown fox jumps over the lazy dog.
 Enter Shift Value (Type 0 to EXIT): 2
@@ -62,34 +63,34 @@ class Caesar{
 	}
 
 	 public static StringBuffer decrypt(StringBuffer text, int s) {
-		StringBuffer result= new StringBuffer();
-		char ch;
-	    int offset;
+            StringBuffer result= new StringBuffer();
+            char ch;
+            int offset;
 
-		for (int i=0; i<text.length(); i++) {
-			if (Character.isUpperCase(text.charAt(i))){
+            for (int i=0; i<text.length(); i++) {
+		if (Character.isUpperCase(text.charAt(i))){
 	            offset = (int)text.charAt(i) - s - 65;
 	            if(offset >= 0){
 	                ch = (char) (offset % 26 + 65);
 	            }
-				else{
+                    else{
 	                ch = (char) ((26 + offset) % 26 + 65);
 	            }
-			}
-			else if(Character.isLowerCase(text.charAt(i))){
+		}
+		else if(Character.isLowerCase(text.charAt(i))){
 	            offset = (int)text.charAt(i) - s - 97;
 	            if(offset >= 0){
-	                h = (char) (offset % 26 + 97);
+	                ch = (char) (offset % 26 + 97);
 	            }else{
-	                h = (char) ((26 + offset) % 26 + 97);
+	                ch = (char) ((26 + offset) % 26 + 97);
 	            }
-			}
-			else
-				ch = (char)((int)text.charAt(i));
-
-			result.append(ch);
-			}
-
-			return result;
 		}
+		else
+                    ch = (char)((int)text.charAt(i));
+
+                result.append(ch);
+            }
+
+            return result;
+	}
 }
